@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sobre Mim | Meu Portfólio</title>
+<meta name="description" content="Conheça minha jornada, habilidades e interesses.">
+<meta property="og:title" content="Sobre Mim">
+<meta property="og:description" content="Minha jornada e habilidades.">
+<meta property="og:image" content="assets/img/avatar.svg">
+<link rel="icon" href="assets/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/reset.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header" data-reveal>
+  <div class="container header-inner">
+    <a class="logo" href="index.html">Paulo Victor</a>
+    <nav class="site-nav" aria-label="Primária">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu">☰</button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="about.html" class="active">Sobre</a></li>
+        <li><a href="projects.html">Projetos</a></li>
+        <li><a href="contact.html">Contato</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">🌓</button>
+  </div>
+</header>
+<main>
+  <section class="about-hero" data-reveal>
+    <div class="container about-hero-inner">
+      <img src="assets/img/avatar.svg" alt="Foto ou avatar" class="about-avatar" width="160" height="160">
+      <h1>Sobre Mim</h1>
+      <p>Sou Paulo Victor, estudante de 17 anos no 3º ano do Ensino Médio, apaixonado por tecnologia e programação. Minha dedicação é no desenvolvimento web, com foco em frontend (JavaScript, TypeScript, HTML, CSS, React) e planos para backend (Python). Além disso, tenho experiência com Adobe Photoshop, edição de vídeo, áudio e imagem, o que me dá uma visão criativa nos projetos. Busco oportunidades de estágio/trainee para aplicar meus conhecimentos e crescer.</p>
+    </div>
+  </section>
+  <section class="about-journey" data-reveal>
+    <div class="container">
+      <h2>Minha Jornada</h2>
+      <p>Desde cedo, minha curiosidade me impulsionou a explorar como as coisas funcionam, transformando essa paixão por tecnologia e programação no foco da minha jornada. Atualmente, sou estudante do 3º ano do Ensino Médio, com 17 anos, e dedico-me intensamente ao desenvolvimento web, focando em frontend (JavaScript, TypeScript, HTML, CSS, React) e mirando no backend (Python). Além da programação, minhas competências incluem Adobe Photoshop, edição de vídeo, áudio e imagens. Meu objetivo é mergulhar ainda mais fundo no desenvolvimento, buscando estágios ou trainees para aplicar e expandir meus conhecimentos em projetos reais, sempre buscando aprendizado e evolução constantes.</p>
+    </div>
+  </section>
+  <section class="about-skills" data-reveal>
+    <div class="container">
+      <h2>Habilidades</h2>
+      <ul class="skills-list">
+        <li><span>HTML5</span><span class="skill-bar" data-skill="90"></span></li>
+        <li><span>CSS3 / Tailwind</span><span class="skill-bar" data-skill="85"></span></li>
+        <li><span>JavaScript</span><span class="skill-bar" data-skill="80"></span></li>
+        <li><span>React</span><span class="skill-bar" data-skill="75"></span></li>
+        <li><span>Python</span><span class="skill-bar" data-skill="65"></span></li>
+      </ul>
+    </div>
+  </section>
+  <section class="about-interests" data-reveal>
+    <div class="container">
+      <h2>Interesses</h2>
+      <p>Games, IA, UI/UX, automação, comunidade open source.</p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer" data-reveal>
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Paulo Victor.</p>
+    <ul class="social-list">
+      <li><a href="https://github.com/paulovrl0624" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/paulovictor-dev/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="mailto:pvrioslima@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="assets/js/main.js" type="module"></script>
+</body>
+</html>

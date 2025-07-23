@@ -1,0 +1,4 @@
+function showError(id,msg){const span=document.querySelector(`.field-error[data-for="${id}"]`);if(span)span.textContent=msg}
+function clearError(id){showError(id,'')}
+function validEmail(v){return/.+@.+\..+/.test(v)}
+export function initContactForm(){const f=document.getElementById('contact-form');if(!f)return;f.addEventListener('submit',e=>{let ok=true;const name=f.name.value.trim();const email=f.email.value.trim();const msg=f.message.value.trim();if(!name){showError('name','Obrigatório');ok=false}else clearError('name');if(!email||!validEmail(email)){showError('email','Email inválido');ok=false}else clearError('email');if(!msg){showError('message','Obrigatório');ok=false}else clearError('message');if(!ok){e.preventDefault();return}const status=document.getElementById('form-status');if(status)status.textContent='Enviando...';})}
