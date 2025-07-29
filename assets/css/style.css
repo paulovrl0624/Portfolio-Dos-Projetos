@@ -1,11 +1,88 @@
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Variáveis de Tema (Consolidadas) */
+:root {
+  /* Cores para o Tema Claro */
+  --color-bg: #f8fafc; /* Fundo principal */
+  --color-text: #0f172a; /* Cor do texto principal */
+  --color-text-muted: #475569; /* Cor do texto secundário/silencioso */
+  --color-bg-alt: #ffffff; /* Fundo alternativo (cabeçalho, cards, etc.) */
+  --color-border: #e2e8f0; /* Cor da borda */
+  --color-brand: #6366f1; /* Cor da marca (principal) */
+  --color-brand-hover: #4f46e5; /* Cor da marca ao passar o mouse */
+  --color-brand-active: #4338ca; /* Cor da marca ao clicar */
+  --color-accent: #ff4081; /* Cor de destaque (do bloco inicial de variáveis) */
+  --color-heading: #0f172a; /* Cor para títulos, para garantir contraste no tema claro (usando a mesma de --color-text para consistência) */
+
+  /* Cores de status */
+  --color-success:#22c55e;
+  --color-warning:#facc15;
+  --color-danger:#ef4444;
+
+  /* Fontes */
+  --font-sans: 'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;
+  --font-mono: 'Fira Code',ui-monospace,monospace;
+
+  /* Raio das bordas */
+  --radius-sm:4px;
+  --radius-md:8px;
+  --radius-lg:16px;
+
+  /* Espaçamentos */
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:48px;
+  --space-8:64px;
+
+  /* Duração das transições */
+  --dur-fast:.15s;
+  --dur-med:.3s;
+  --dur-slow:.6s;
+
+  /* Curva de transição */
+  --easing:cubic-bezier(.16,1,.3,1);
+
+  /* Sombras */
+  --shadow-sm:0 1px 2px rgba(0,0,0,.08);
+  --shadow-md:0 4px 16px rgba(0,0,0,.12);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.16);
+}
+
+/* Cores para o Tema Escuro */
+[data-theme="dark"] {
+  --color-bg: #0f172a;
+  --color-text: #f1f5f9;
+  --color-text-muted: #cbd5e1;
+  --color-bg-alt: #1e293b;
+  --color-border: #334155;
+  --color-brand: #66b3ff; /* Ajuste para melhor visibilidade no tema escuro */
+  --color-brand-hover: #4da6ff;
+  --color-brand-active: #368fff;
+  --color-heading: #f1f5f9; /* Para garantir que títulos sejam claros no tema escuro */
+
+  /* Sombras ajustadas para o tema escuro */
+  --shadow-sm:0 1px 2px rgba(0,0,0,.6);
+  --shadow-md:0 4px 16px rgba(0,0,0,.5);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.5);
+}
+
+
+/* Estilos Gerais */
 html{scroll-behavior:smooth}
 body{font-family:var(--font-sans);background:var(--color-bg);color:var(--color-text);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
 img{display:block}
 a{text-decoration:none;color:var(--color-brand);transition:color var(--dur-fast) var(--easing)}a:hover{color:var(--color-brand-hover)}
+
+/* Estilos de Botões */
 .btn{display:inline-block;padding:var(--space-2) var(--space-4);border-radius:var(--radius-md);border:2px solid var(--color-brand);font-weight:600;transition:all var(--dur-fast) var(--easing);cursor:pointer;text-align:center}
 .btn.primary{background:var(--color-brand);color:#fff;border-color:var(--color-brand)}.btn.primary:hover{background:var(--color-brand-hover);border-color:var(--color-brand-hover)}.btn.primary:active{background:var(--color-brand-active);border-color:var(--color-brand-active)}
 .btn.ghost{background:transparent;color:var(--color-brand)}.btn.ghost:hover{background:var(--color-brand);color:#fff}
+
+/* Layout e Componentes Reutilizáveis */
 .container{width:100%;max-width:1200px;margin:0 auto;padding:0 var(--space-4)}
 .site-header{position:sticky;top:0;z-index:100;background:var(--color-bg-alt);border-bottom:1px solid var(--color-border);box-shadow:var(--shadow-sm)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
@@ -16,17 +93,23 @@ a{text-decoration:none;color:var(--color-brand);transition:color var(--dur-fast)
 .nav-menu a{color:var(--color-text-muted);padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm);transition:background var(--dur-fast) var(--easing)}
 .nav-menu a:hover,.nav-menu a.active{background:var(--color-brand);color:#fff}
 .theme-toggle{margin-left:var(--space-4);background:none;border:2px solid var(--color-border);border-radius:var(--radius-sm);padding:var(--space-1) var(--space-2);cursor:pointer}
+
+/* Seções da Home Page */
 .hero{padding:var(--space-8) 0;text-align:center}
 .hero-inner{display:grid;gap:var(--space-6);grid-template-columns:1fr;align-items:center}
-.hero-text h1{font-size:clamp(2rem,5vw,3rem);line-height:1.2;margin-bottom:var(--space-4)}
-.hero-text p{max-width:40ch;margin:0 auto var(--space-5)}
+.hero-text h1{font-size:clamp(2rem,5vw,3rem);line-height:1.2;margin-bottom:var(--space-4);color:var(--color-heading);} /* Usando --color-heading para títulos */
+.hero-text p{max-width:40ch;margin:0 auto var(--space-5);color:var(--color-text);}
 .hero-cta{display:flex;gap:var(--space-4);justify-content:center}
 .home-highlights{padding:var(--space-8) 0}
 .highlights-grid{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
 .home-cta{text-align:center;padding:var(--space-8) 0}
+
+/* Rodapé */
 .site-footer{margin-top:var(--space-8);padding:var(--space-6)0;background:var(--color-bg-alt);border-top:1px solid var(--color-border)}
 .footer-inner{display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center}
 .social-list{display:flex;gap:var(--space-4);list-style:none}
+
+/* Seção Sobre */
 .about-hero{text-align:center;padding:var(--space-8) 0}
 .about-avatar{border-radius:50%;box-shadow:var(--shadow-md);margin-bottom:var(--space-4)}
 .about-journey,.about-skills,.about-interests{padding:var(--space-8)0}
@@ -34,6 +117,8 @@ a{text-decoration:none;color:var(--color-brand);transition:color var(--dur-fast)
 .skills-list li{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:var(--space-3)}
 .skill-bar{position:relative;display:block;width:100%;height:8px;background:var(--color-border);border-radius:var(--radius-sm);overflow:hidden}
 .skill-bar::after{content:"";position:absolute;inset:0;width:0;height:100%;background:var(--color-brand);transition:width var(--dur-slow) var(--easing)}
+
+/* Seção Projetos */
 .projects-hero{text-align:center;padding:var(--space-8)0}
 .project-filters{display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap;margin-top:var(--space-4)}
 .project-filter-btn{padding:var(--space-1) var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-sm);cursor:pointer;font-size:.875rem;background:var(--color-bg-alt);transition:all var(--dur-fast)var(--easing)}
@@ -47,50 +132,86 @@ a{text-decoration:none;color:var(--color-brand);transition:color var(--dur-fast)
 .project-card-body h3{font-size:1.125rem;margin-bottom:var(--space-2)}
 .project-card-body p{font-size:.9375rem;color:var(--color-text-muted);margin-bottom:var(--space-4)}
 .project-card-links{display:flex;gap:var(--space-3)}
+
+/* Seção Contato */
 .contact-hero{text-align:center;padding:var(--space-8)0}
 .contact-form-section{padding:var(--space-8)0}
 .contact-form-container{max-width:480px;margin:0 auto}
 .form-field{display:flex;flex-direction:column;gap:var(--space-1);margin-bottom:var(--space-4)}
 .form-field input,.form-field textarea{padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm);border:1px solid var(--color-border);background:var(--color-bg-alt);color:var(--color-text)}
 .field-error{color:var(--color-danger);font-size:.75rem;min-height:1em}
+
+/* Seção Blog */
 .post-inner{max-width:700px;margin:0 auto;padding:var(--space-8)0}
 .post-inner h1{margin-bottom:var(--space-4)}
 .post-meta{margin-bottom:var(--space-5);color:var(--color-text-muted);font-size:.875rem}
 .blog-list{list-style:none;display:grid;gap:var(--space-3);max-width:600px;margin:0 auto;padding:var(--space-8)0}
 .blog-list a{display:block;padding:var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-bg-alt);transition:background var(--dur-fast)var(--easing)}
 .blog-list a:hover{background:var(--color-brand);color:#fff;border-color:var(--color-brand)}
+
+/* Efeitos de Revelar */
 [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity var(--dur-med)var(--easing),transform var(--dur-med)var(--easing)}
 [data-reveal].revealed{opacity:1;transform:none}
-@media(max-width:640px){.nav-toggle{display:block}.nav-menu{position:absolute;top:100%;right:0;flex-direction:column;background:var(--color-bg-alt);padding:var(--space-4);border:1px solid var(--color-border);box-shadow:var(--shadow-md);min-width:160px;max-height:0;overflow:hidden;transition:max-height var(--dur-fast)var(--easing)}.nav-menu.open{max-height:500px}.hero-inner{grid-template-columns:1fr}.hero-media{order:-1}.header-inner{height:auto;padding:var(--space-3)0;flex-wrap:wrap;gap:var(--space-3)}}
-@media(min-width:641px){.hero-inner{grid-template-columns:1fr 1fr;text-align:left;}.hero-text{text-align:left}.hero-cta{justify-content:flex-start}}
+
+/* Media Queries Responsivas */
+@media(max-width:640px){
+  .nav-toggle{display:block}
+  .nav-menu{position:absolute;top:100%;right:0;flex-direction:column;background:var(--color-bg-alt);padding:var(--space-4);border:1px solid var(--color-border);box-shadow:var(--shadow-md);min-width:160px;max-height:0;overflow:hidden;transition:max-height var(--dur-fast)var(--easing)}
+  .nav-menu.open{max-height:500px}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-media{order:-1}
+  .header-inner{height:auto;padding:var(--space-3)0;flex-wrap:wrap;gap:var(--space-3)}
+}
+@media(min-width:641px){
+  .hero-inner{grid-template-columns:1fr 1fr;text-align:left;}
+  .hero-text{text-align:left}
+  .hero-cta{justify-content:flex-start}
+}
+
+/* Acessibilidade */
 :focus-visible{outline:2px solid var(--color-brand);outline-offset:2px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-:root {
-  --color-bg: #121212;
-  --color-text: #e0e0e0;
-  --color-brand: #00bcd4;
-  --color-brand-hover: #26c6da;
-  --color-brand-active: #00acc1;
-  --color-accent: #ff4081;
-  --color-heading: #ffffff;
-  --font-sans: 'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;
-  --font-mono: 'Fira Code',ui-monospace,monospace;
-  --radius-sm:4px;--radius-md:8px;--radius-lg:16px;
-  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;
-  --dur-fast:.15s;--dur-med:.3s;--dur-slow:.6s;
-  --easing:cubic-bezier(.16,1,.3,1);
-  --shadow-sm:0 1px 2px rgba(0,0,0,.08);
-  --shadow-md:0 4px 16px rgba(0,0,0,.12);
-  --shadow-lg:0 8px 32px rgba(0,0,0,.16);
-  --color-brand:#6366f1;
-  --color-brand-hover:#4f46e5;
-  --color-brand-active:#4338ca;
-  --color-success:#22c55e;--color-warning:#facc15;--color-danger:#ef4444;
-  --color-text:#0f172a;--color-text-muted:#475569;--color-bg:#f8fafc;--color-bg-alt:#ffffff;--color-border:#e2e8f0;
+
+/* --- ESTILOS ADICIONADOS PARA A IMAGEM DO HERO (NÃO REMOVER) --- */
+.hero-media img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-[data-theme="dark"] {
-  --color-text:#f1f5f9;--color-text-muted:#cbd5e1;--color-bg:#0f172a;--color-bg-alt:#1e293b;--color-border:#334155;
-  --shadow-sm:0 1px 2px rgba(0,0,0,.6);
-  --shadow-md:0 4px 16px rgba(0,0,0,.5);
-  --shadow-lg:0 8px 32px rgba(0,0,0,.5);
+.hero-media img:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA A SEÇÃO DE CERTIFICAÇÕES (AJUSTADOS) --- */
+.certificacoes {
+  padding: 50px 20px;
+  background-color: var(--color-bg); /* Agora usa a variável do tema para o fundo */
+  color: var(--color-text); /* Garante que o texto da seção herde a cor correta */
+}
+
+.certificacoes h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--color-heading); /* Usa a variável para títulos, que muda com o tema */
+}
+
+.certificacoes h2 {
+  text-align: center;
+  font-size: 1.5rem; /* Um pouco menor que o h1 */
+  margin-bottom: 30px;
+  color: var(--color-text); /* Usa a variável do tema para o texto do subtítulo */
+}
+
+.certificados-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  /* Opcional: Se quiser um fundo para o container que seja diferente do background da seção, use: */
+  /* background-color: var(--color-bg-alt); */
+  /* padding: 20px; */
+  /* border-radius: var(--radius-md); */
 }

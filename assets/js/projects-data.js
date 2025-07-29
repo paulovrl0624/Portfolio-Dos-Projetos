@@ -1,11 +1,12 @@
 export const projects = [
   {
-     title: "paulovr0624",
-    slug: "paulovr0624",
-    img: "assets/img/profile.jpg", // sugestão: imagem padrão ou pessoal
-    desc: "Repositório pessoal.",
-    tags: ["pessoal"],
-    github: "https://github.com/paulovrl0624/paulovrl0624.git",
+    title: "Portfolio",
+    slug: "Portfolio-Dos-Projetos",
+    img: "assets/img/Portfolio.png", // sugestão: imagem de portfólio
+    desc: "Portfólio pessoal feito com HTML e CSS.",
+    tags: ["html", "css", "portfolio"],
+    github: "https://github.com/paulovrl0624/Portfolio-Dos-Projetos.git",
+    demo: ""
   },
   {
     title: "Desafio 1 - Trilha Inova",
@@ -73,7 +74,7 @@ export const projects = [
   {
     title: "Loja Virtual",
     slug: "loja-virtual",
-    img: "assets/img/loja.jpg", // sugestão: imagem de carrinho ou e-commerce
+    img: "assets/img/lojavirtual.png", // sugestão: imagem de carrinho ou e-commerce
     desc: "Loja virtual com funcionalidades de compra.",
     tags: ["javascript", "ecommerce"],
     github: "https://github.com/paulovrl0624/Loja-Virtual.git",
